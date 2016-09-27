@@ -3,12 +3,12 @@
 [PlayCanvas](https://github.com/playcanvas/engine) is an open-source WebGL game engine with browser-based [Editor](https://playcanvas.com/) in the cloud. PlayCanvas projects can be published as ZIP folders containing index.html, javascript files, graphic assets and audio, and can be embedded as separate views in Origami Design, allowing them to become part of a native app such as digital magazine, interactive presentation, and so on.
 
 ### Contents
-- Preparing PlayCanvas builds
+- Preparing PlayCanvas build
 - Invoking PlayCanvas actions in Origami Engine
 - Sending events from PlayCanvas to Origami Engine
 - Saving state
 
-### Preparing PlayCanvas builds
+### Preparing PlayCanvas build
 Every PlayCanvas project can be embedded into Origami-published app out of the box, without using exetrnal libraries and converters. Just hit Publish > Web Download, and upload resulting ZIP into Origami Design project. To faciliate additional features like two-sided communication and state saving / restoring, use guidlines provided below.
 
 ### Invoking PlayCanvas actions in Origami Engine
