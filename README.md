@@ -4,14 +4,14 @@
 
 ### Contents
 - Getting started
-- Exposing actions from PlayCanvas to Origami Engine
-- Senging events from PlayCanvas to Origami Engine
+- Invoking PlayCanvas actions from Origami Engine
+- Sending events from PlayCanvas to Origami Engine
 - Saving state
 
 ### Getting started
 TODO
 
-### Exposing actions from PlayCanvas to Origami Engine
+### Invoking PlayCanvas actions from Origami Engine
 As of now, you don't need to do anything extra to expose functionality from PlayCanvas project - it is available in Origami Design by default. Every function in every script can be called from Origami Engine, as long as this script is attached to some entity in the root of PlayCanvas project hierarchy. Here is what it would look like:
 
 1. Create an empty entity in PlayCanvas scene as a direct Root child, and name it Foo
@@ -28,7 +28,7 @@ Action: doSomething
 ```
 Sending arguments inside actions isn't supported at the moment, but may be implemented in the future.
 
-### Senging events from PlayCanvas to Origami Engine
+### Sending events from PlayCanvas to Origami Engine
 As the opposite direction of communication, events allow PlayCanvas to notify Origami Engine of some state changes, triggering desired response in the container app itself. For these purposes we utilize a standard PlayCanvas event channel, used internally for communication between scripts. Here is how it can be done:
 
 1. Create any script and attach it to any entity in your project, no matter how deep in the hierarchy
