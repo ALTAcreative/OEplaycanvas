@@ -38,9 +38,9 @@ As the opposite direction of communication, events allow PlayCanvas to notify Or
 As of now, sending arguments with events is not supported, but may be implemented in the future.
 
 ### Saving state
-To save battery and memory usage, PlayCanvas container in Origami Engine is destroyed every time the app goes in background mode, and is restored every time it goes back to foreground. To make PlayCanvas remember the last state it was in before termination, a global helper class PCState is introduced.
+To save battery and memory usage, PlayCanvas container in Origami Engine is destroyed every time the app goes in background mode, and is restored every time it goes back to foreground. To make PlayCanvas remember the last state it was in before termination, a global helper class PCState is introduced. PCState is a custom solution implemented by Origami Engine execution environment and is not the part of original PlayCanvas specs.
 
-Let's create a State script first and attach it to State entity in the hierarchy. To handle state saving we need to attach a callback function, which will be called by Origami Engine upon container termination. To handle state loading we simply read `state` property of supplied object:
+So let's create a State script first and attach it to State entity in the hierarchy. To handle state saving we need to attach a callback function, which will be called by Origami Engine upon container termination. To handle state loading we simply read `state` property of supplied object:
 ```
 State.prototype.postInitialize = function ()
 {
@@ -76,7 +76,7 @@ State.prototype.saveState = function (state)
     // etc...
 };
 ```
-It's important to perform state restoring in `postInitialize()` since other scripts will have a possibility to add listeners to `state:loaded` event before this it's fired by State script.
+It's important to perform state restoring in `postInitialize()` since other scripts will have a possibility to add listeners to `state:loaded` event inside `initialize()` - before the event gets fired by State script.
 
 
 
