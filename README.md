@@ -35,7 +35,7 @@ As the opposite direction of communication, events allow PlayCanvas to notify Or
 2. Invoke `this.app.fire ('something:happened')` inside `initialize()` (use `app.fire` for legacy scripting system)
 3. Done! Now you just need to handle this event in Origami Design - trigger some action, start transition, and so on
 
-You can send events from part of PlayCanvas code, as long as it gets executed at some point. As of now, sending arguments with events is not supported, but may be implemented in the future.
+You can send events from every part of PlayCanvas code, as long as it gets executed at some point. As of now, sending arguments with events is not supported, but may be implemented in the future.
 
 ### Saving state
 To save battery and memory usage, PlayCanvas container in Origami Engine is destroyed every time the app goes in background mode, and is restored every time it goes back to foreground. To make PlayCanvas remember the last state it was in before termination, a global helper class PCState is introduced. PCState is a custom solution implemented by Origami Engine execution environment and is not the part of original PlayCanvas specs.
