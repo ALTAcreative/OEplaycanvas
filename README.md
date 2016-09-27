@@ -4,14 +4,14 @@
 
 ### Contents
 - Getting started
-- Invoking PlayCanvas actions from Origami Engine
+- Invoking PlayCanvas actions in Origami Engine
 - Sending events from PlayCanvas to Origami Engine
 - Saving state
 
 ### Getting started
 TODO
 
-### Invoking PlayCanvas actions from Origami Engine
+### Invoking PlayCanvas actions in Origami Engine
 As of now, you don't need to do anything extra to expose functionality from PlayCanvas project - it is available in Origami Design by default. Every function in every script can be called from Origami Engine, as long as this script is attached to some entity in the root of PlayCanvas project hierarchy. Here is what it would look like:
 
 1. Create an empty entity in PlayCanvas scene as a direct Root child, and name it Foo
