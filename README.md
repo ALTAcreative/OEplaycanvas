@@ -61,18 +61,22 @@ State.prototype.loadState = function (state)
 
         // sending a custom event to all subscribed script instances
         // so they would transition into required state accordingly
+        
         this.app.fire ('state:loaded', state);
     }   
 };
 
 State.prototype.saveState = function (state)
 {
+    // foo and bar are state variables we want to save and restore
+    // they're usually supplied via events channels from other scripts
+
     state.foo = this.foo;
     state.bar = this.bar;
     // etc...
 };
 ```
-It's important to perform state restoring in `postInitialize()` since other scripts will have a possibility to add listeners to `state:loaded` event before this event is fired by State script.
+It's important to perform state restoring in `postInitialize()` since other scripts will have a possibility to add listeners to `state:loaded` event before this it's fired by State script.
 
 
 
