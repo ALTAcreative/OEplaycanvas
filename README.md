@@ -1,28 +1,36 @@
 # Play Canvas intergration with Origami Engine
 
-Here are the 3 main issues connected to the iOS/Android repos that discribe the basics of what we want to achieve.
+[PlayCanvas](https://github.com/playcanvas/engine) is an open-source WebGL game engine with browser-based [Editor](https://playcanvas.com/) in the cloud. PlayCanvas projects can be published as ZIP folders containing index.html, javascript files, graphic assets and audio, and can be embedded as separate views in Origami Design, allowing them to become part of a native app such as digital magazine, interactive presentation, and so on.
 
-**Issue 345  
-This is to be able to add WebGL via playcanvas tool to Origami Engine. I'm looking for tight integration between the two.
+### Contents
+- Getting started
+- Exposing actions from PlayCanvas to Origami Engine
+- Listening to events from Origami Engine inside PlayCanvas
+- Saving state
 
-We want to be able to export the files from playcanvas and just add them right into Origami Design. This is the most basic part. PlayCanvas or WebGL by default needs an internet connection. We need to be able to set it up so that when in OE, it does not need an internet connection.  
+### Getting started
+TODO
 
-I want to be able to declare triggers/behavioris in playcanvase and give them names. then be able to read those names in Origami Design. This way we can build gui in OD that can contorl parts of the play canvas system.  
+### Exposing actions from PlayCanvas to Origami Engine
+As of now, you don't need to do anything extra to expose functionality from PlayCanvas project - it is available in Origami Design by default. Every function in every script can be called from Origami Engine, as long as this script is attached to some entity in the root of PlayCanvas project hierarchy. Here is what it would look like:
 
-Play Canvas has the ability to add JS files to it's system. I suggest we have a JS files that makes it easy for OD to find predefined states or behaviors and it exposes them to the OE trigger system.  
+1. Create an empty entity in PlayCanvas scene as a direct Root child, and name it Foo
+2. Create a new script called Bar.js, and attach it to this entity
+3. Make sure instantiated class and script id also read as Bar, not bar
+4. Create a function on Bar prototype and name it doSomething
+5. Implement desired functionality inside it, and make sure it doesn't take any arguments
 
-Going the other way is something else. Being able to send trigger URLs to OE in a different thing. I guess in theory it should be easy but i don't know really how we would do it. We need to discuss it.
+Now, to call this action from Origame Engine, you would need to specify a Trigger Action with the following parameters:
+```
+Entity: Foo
+Script: Bar
+Action: doSomething
+```
+Sending arguments inside actions isn't supported at the moment, but may be implemented in the future.
 
 
-**Issue 368  
-This is to be able to define events in a OE specific way so that OE can see them and expose them in a trigger panel in OD. This will then allow us to fire triggers that cause something to happen inn the specific play canvas.  
-
-In the same way that a touch event can cause something to happen in play canvas we will have events coming from OE to cause the firing of events in Play Canvas.  
-
-I expect this will require some OE specific coding/JS/behavior to be written in the play canvas project.  
-
-I'm not sure how events work in play canvas or JS. I'm basing by throughts on how you define functions in PHP. Then you can expose those functions and the parameters you can pass to them.  
 
 
-**Issue 369  
-This is basically the opposite of #368 Here you can find the Play Canvan object in the target dropdown and under that are all of the events you can. In a JS file you will define these elements and specify the way you can affect them (basically passing a variable to them connected to the trigger.  
+
+
+
