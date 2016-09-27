@@ -61,7 +61,7 @@ State.prototype.loadState = function (state)
 
         // sending a custom event to all subscribed script instances
         // so they would transition into required state accordingly
-        app.fire ('state:loaded', state);
+        this.app.fire ('state:loaded', state);
     }   
 };
 
